@@ -10,4 +10,20 @@ router.post('/', (req,res) => {
   });
 });
 
+
+router.post('/getDataScan', (req, res) => {
+  const { image } = req.body;
+  Presence.create(image, (err, result) => {
+    if (err) return res.status(500).send(err.message);
+    res.status(201).json(result);
+  });
+});
+
+router.get("/getDataScan", (req, res) => {
+  Presence.findAll((err, result) => {
+    if (err) return res.status(500).send(err.message);
+    res.status(200).json(result);
+  });
+});
+
 module.exports = router;
