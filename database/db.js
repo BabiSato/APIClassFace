@@ -9,9 +9,9 @@ db.serialize(() => {
       name TEXT NOT NULL,
       email TEXT UNIQUE NOT NULL,
       password TEXT NOT NULL,
-      photo TEXT
+      photo TEXT -- Este campo armazenará o CAMINHO para a foto no servidor
     );
-  `); //
+  `);
 
   // Tabela presences ATUALIZADA
   db.run(`
