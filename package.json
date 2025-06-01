@@ -20,6 +20,8 @@
     "mongoose": "^8.15.0",
     "multer": "^2.0.0",
     "nodemon": "^3.1.10",
+    "path-browserify": "^1.0.1",
+    "react-native-fs": "^2.20.0",
     "sqlite3": "^5.1.7"
   }
 }

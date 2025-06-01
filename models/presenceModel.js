@@ -1,4 +1,4 @@
-const db = require('../database/db'); //
+const db = require('../database/db');
 
 const Presence = {
   create: (presenceData, callback) => {
@@ -6,14 +6,13 @@ const Presence = {
       userId,
       subjectId,
       registrationType,
-      clientTimestamp, // Timestamp enviado pelo cliente, se houver
+      clientTimestamp,
       imagePath,
       latitude,
       longitude,
       locationName
     } = presenceData;
 
-    // Usa o timestamp do cliente se fornecido, senão gera um novo no backend
     const timestamp = clientTimestamp || new Date().toISOString();
 
     db.run(
@@ -39,17 +38,8 @@ const Presence = {
   },
 
   findAll: (callback) => {
-    db.all("SELECT * FROM presences ORDER BY timestamp DESC", callback); //
+    db.all("SELECT * FROM presences ORDER BY timestamp DESC", callback);
   },
-
-  // Você pode adicionar outros métodos aqui se necessário, por exemplo:
-  // findEntryForClass: (userId, subjectId, callback) => {
-  //   db.get(
-  //     "SELECT * FROM presences WHERE user_id = ? AND subject_id = ? AND registration_type = 'entry' ORDER BY timestamp DESC LIMIT 1",
-  //     [userId, subjectId],
-  //     callback
-  //   );
-  // },
 };
 
-module.exports = Presence; //
+module.exports = Presence;

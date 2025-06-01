@@ -1,7 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./database/classface.db'); //
+const db = new sqlite3.Database('./database/classface.db');
 
-// Criar as tabelas dentro do bloco serialize
 db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
@@ -12,8 +11,6 @@ db.serialize(() => {
       photo TEXT -- Este campo armazenará o CAMINHO para a foto no servidor
     );
   `);
-
-  // Tabela presences ATUALIZADA
   db.run(`
     CREATE TABLE IF NOT EXISTS presences (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,4 +27,4 @@ db.serialize(() => {
   `);
 });
 
-module.exports = db; //
+module.exports = db;
